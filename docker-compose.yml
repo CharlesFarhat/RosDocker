@@ -23,9 +23,3 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
       - /home/ares/Projects/ros_ws:/ros_ws
-
-
-# then to get inside use : sudo docker exec -it ros /bin/bash
-# You ALOSO need to execute : xhost +local:docker
-# See that to configure Clion : https://www.allaban.me/posts/2020/08/ros2-setup-ide-docker/
-# Use ssh root@localhost to connect
