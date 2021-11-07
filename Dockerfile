@@ -53,6 +53,7 @@ RUN apt-get update \
       rsync \
       tar \
       wget \
+      ros-melodic-pcl-* \
   && apt-get clean
 
 RUN apt-get update && apt-get install -y openssh-server
