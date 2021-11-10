@@ -22,4 +22,4 @@ services:
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
-      - /home/ares/Projects/ros_ws:/ros_ws
+      - /home/voyna/Projects/ros_ws:/ros_ws

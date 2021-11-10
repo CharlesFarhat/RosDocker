@@ -52,9 +52,17 @@ RUN apt-get update \
       cmake \
       rsync \
       tar \
+      unzip \
       wget \
       ros-melodic-pcl-* \
   && apt-get clean
+
+# Install GTSAM
+WORKDIR /home/
+RUN wget -O gtsam.zip https://github.com/borglab/gtsam/archive/4.0.2.zip
+RUN unzip gtsam.zip && rm gtsam.zip
+RUN cd /home/gtsam-4.0.2/ && mkdir build && cd build && cmake -DGTSAM_BUILD_WITH_MARCH_NATIVE=OFF .. \
+&& make install -j8
 
 RUN apt-get update && apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
@@ -62,5 +70,4 @@ RUN echo 'root:toor' | chpasswd
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 EXPOSE 22
-
 CMD ["/usr/sbin/sshd", "-D"]
