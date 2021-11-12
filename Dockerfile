@@ -55,6 +55,9 @@ RUN apt-get update \
       unzip \
       wget \
       ros-melodic-pcl-* \
+      ros-melodic-navigation \
+      ros-melodic-robot-localization \
+      ros-melodic-robot-state-publisher \
   && apt-get clean
 
 # Install GTSAM
